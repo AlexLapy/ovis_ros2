@@ -1,0 +1,9 @@
+<launch>
+    <!-- The name of the parameter under which the URDF is loaded -->
+    <arg name="robot_description" default="robot_description"/>
+
+    <!-- Load the urdf description from generated_gazebo file to parameter server -->
+    <param name="$(arg robot_description)" command="$(find xacro)/xacro $(find ovis_description)/urdf/generated_gazebo.urdf"/>
+    <param name="$(arg robot_description)_semantic" textfile="$(find ovis_moveit_config)/config/ovis.srdf" />
+
+</launch>

@@ -1,0 +1,32 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/alexlapy/robot_ws/install/serial_motor_demo/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/robot_ws/install/lapy_vision/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_navigation/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_msg/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/robot_ws/install/lapy_mapper/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_description/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_control/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/ball_tracker/lib/python3.10/site-packages",
+        "/home/alexlapy/dai_ws/install/depthai_ros_driver/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/dai_ws/install/depthai_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/alexlapy/robot_ws/install/serial_motor_demo/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/robot_ws/install/lapy_vision/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_navigation/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_msg/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/robot_ws/install/lapy_mapper/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_description/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/lapy_control/lib/python3.10/site-packages",
+        "/home/alexlapy/robot_ws/install/ball_tracker/lib/python3.10/site-packages",
+        "/home/alexlapy/dai_ws/install/depthai_ros_driver/local/lib/python3.10/dist-packages",
+        "/home/alexlapy/dai_ws/install/depthai_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

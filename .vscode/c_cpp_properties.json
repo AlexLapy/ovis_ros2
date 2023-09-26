@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/alexlapy/robot_ws/install/serial_motor_demo_msgs/include/**",
+        "/home/alexlapy/robot_ws/install/serial/include/**",
+        "/home/alexlapy/robot_ws/install/rplidar_ros/include/**",
+        "/home/alexlapy/robot_ws/install/lapy_msg/include/**",
+        "/home/alexlapy/robot_ws/install/diffdrive_arduino/include/**",
+        "/home/alexlapy/dai_ws/install/depthai_ros_driver/include/**",
+        "/home/alexlapy/dai_ws/install/depthai_bridge/include/**",
+        "/home/alexlapy/dai_ws/install/depthai_ros_msgs/include/**",
+        "/home/alexlapy/dai_ws/install/depthai_filters/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/alexlapy/ovis_ws/src/ovis_ros2/kinova_driver/include/**",
+        "/home/alexlapy/ovis_ws/src/ovis_ros2/kinova_msgs/include/**",
+        "/home/alexlapy/ovis_ws/src/ovis_ros2/ovis_msgs/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
