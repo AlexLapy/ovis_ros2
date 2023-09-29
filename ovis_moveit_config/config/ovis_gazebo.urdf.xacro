@@ -4,13 +4,13 @@
 
     <!-- Import ovis urdf file -->
     <xacro:include filename="$(find ovis_description)/urdf/ovis_standalone.xacro" />
-    <xacro:include filename="$(find ovis_description)/urdf/ovis.gazebo" />
+    
 
 
     <!-- Import control_xacro -->
     <xacro:include filename="ovis_gazebo.ros2_control.xacro" />
 
 
-    <xacro:ovis_ros2_control name="GazeboSystem" initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:ovis_ros2_control name="GazeboSystem"/>
 
 </robot>

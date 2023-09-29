@@ -97,7 +97,7 @@ def generate_launch_description():
     ovis_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["ovis_manipulator_controller", "-c", "/controller_manager"],
+        arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
     )
 
     return LaunchDescription(

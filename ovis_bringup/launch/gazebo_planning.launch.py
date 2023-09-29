@@ -18,6 +18,7 @@ from launch import LaunchContext
 def generate_launch_description():
 
     package_bringup='ovis_bringup'
+    package_moveit_config='ovis_moveit_config'
     package_description='ovis_description'
 
     rsp = IncludeLaunchDescription(
@@ -35,6 +36,20 @@ def generate_launch_description():
                     launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file,
                                       'world': gazebo_world_file}.items()
     )
+
+    # Need to find a way to make move_group and rviz use_sim_time ...
+    move_group = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_moveit_config), 'launch', 'move_group.launch.py'
+                    )]), launch_arguments={'use_sim_time': 'true'}.items()
+    )
+
+    rviz = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_moveit_config), 'launch', 'moveit_rviz.launch.py'
+                    )]), launch_arguments={'use_sim_time': 'true'}.items()
+    )
+
 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
@@ -65,26 +80,35 @@ def generate_launch_description():
         )
     )
 
-    diff_drive_spawner = Node(
+    ovis_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_trajectory_controller",
-                    "--controller-manager", "/controller_manager"],
+        arguments=[
+            "joint_trajectory_controller",
+            "--controller-manager-timeout",
+            "300",
+            "--controller-manager",
+            "/controller_manager",
+        ],
     )
 
-    delayed_diff_drive_spawner = RegisterEventHandler(
+    delayed_ovis_arm_controller_spawner = RegisterEventHandler(
         event_handler=OnProcessExit(
                 target_action=joint_broad_spawner,
-                on_exit=[diff_drive_spawner],
+                on_exit=[ovis_arm_controller_spawner],
         )
     )
 
-    delayed_spawn_entity = TimerAction(period=5.0, actions=[spawn_entity])
+    delayed_spawn_entity = TimerAction(period=3.0, actions=[spawn_entity])
+    delayed_move_group = TimerAction(period=10.0, actions=[move_group])
+    delayed_rviz = TimerAction(period=15.0, actions=[rviz])
 
     return LaunchDescription([
         rsp,
         gazebo,
         delayed_spawn_entity,
         delayed_joint_broad_spawner,
-        delayed_diff_drive_spawner,
+        delayed_ovis_arm_controller_spawner,
+        delayed_move_group,
+        delayed_rviz
     ])

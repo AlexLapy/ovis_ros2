@@ -103,7 +103,13 @@ def generate_launch_description():
     ovis_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["ovis_manipulator_controller", "-c", "/controller_manager"],
+        arguments=[
+            "joint_trajectory_controller",
+            "--controller-manager-timeout",
+            "300",
+            "--controller-manager",
+            "/controller_manager",
+        ],
     )
 
     # Launch as much as possible in components
