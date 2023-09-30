@@ -98,6 +98,6 @@ def generate_launch_description():
     return LaunchDescription([
         rsp,
         gazebo,
-        delayed_servo,
         delayed_spawn_entity,
+        delayed_servo,
     ])

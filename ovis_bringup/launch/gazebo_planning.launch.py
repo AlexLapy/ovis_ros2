@@ -37,7 +37,8 @@ def generate_launch_description():
                                       'world': gazebo_world_file}.items()
     )
 
-    # Need to find a way to make move_group and rviz use_sim_time ...
+    # TODO Need to find a way to make move_group and rviz use_sim_time ... 
+    # NOTE hardcoded for now see:https://github.com/TheConstructAi/moveit2/blob/humble/moveit_configs_utils/moveit_configs_utils/launches.py#L232
     move_group = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_moveit_config), 'launch', 'move_group.launch.py'
@@ -99,9 +100,9 @@ def generate_launch_description():
         )
     )
 
-    delayed_spawn_entity = TimerAction(period=3.0, actions=[spawn_entity])
-    delayed_move_group = TimerAction(period=10.0, actions=[move_group])
-    delayed_rviz = TimerAction(period=15.0, actions=[rviz])
+    delayed_spawn_entity = TimerAction(period=10.0, actions=[spawn_entity])
+    delayed_move_group = TimerAction(period=25.0, actions=[move_group])
+    delayed_rviz = TimerAction(period=30.0, actions=[rviz])
 
     return LaunchDescription([
         rsp,
